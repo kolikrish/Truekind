@@ -1,0 +1,7 @@
+<svg width="400" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Smooth downward curve -->
+  <path d="M50,50 C150,120 250,120 350,50" stroke="gray" fill="none" stroke-width="2" />
+  
+  <!-- Arrowhead -->
+  <!-- <path d="M345,55 L355,50 L345,45" fill="none" stroke="black" stroke-width="2"/> -->
+</svg>
