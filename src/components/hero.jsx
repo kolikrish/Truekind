@@ -54,7 +54,7 @@ const Hero = () => {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 "
       >
-        <source src="vid/front-page.mp4" />
+        <source src="video/front-page.mp4" />
       </video>
 
       <div className="bg-black/10 absolute top-0 left-0 h-screen w-screen"></div>
