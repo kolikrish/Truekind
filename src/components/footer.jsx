@@ -152,7 +152,7 @@ const Footer = () => {
 
                     <p className='font-body text-[1.5vh] text-gray-400 underline cursor-pointer'>Disclaimer</p>
                     <p className='font-body text-[1.5vh] text-gray-400 underline cursor-pointer'>Credits</p>
-                    <p className='font-body text-[1.5vh] text-gray-400 cursor-pointer'>Website By: <span className='underline'>Ishita</span></p>
+                    <p className='font-body text-[1.5vh] text-gray-400 cursor-pointer'>Website By: <span className='underline'>Krish</span></p>
                 </div>
             </div>
         </div>
