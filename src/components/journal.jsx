@@ -5,7 +5,7 @@ import Button from "./btn";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from "gsap/dist/SplitText";
-gsap.registerEase(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Journal = () => {
   useEffect(() => {

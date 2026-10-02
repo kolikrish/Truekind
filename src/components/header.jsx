@@ -1,19 +1,23 @@
-import React from 'react'
+'use client';
+import React from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 const Header = ({ isScrolled = false }) => {
 
   const navLinks= ["SHOP", "PHILOSOPHY", "GALLERY","JOURNAL"];
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header>
-      <div className={`fixed z-50 w-full overflow-x-hidden overflow-y-hidden top-0 flex items-center justify-between h-[10vh] px-[4vw]  ${
-        isScrolled ? 'bg-white' : ''
+      <div className={`fixed z-50 w-full overflow-x-clip top-0 flex items-center justify-between h-[68px] md:h-[10vh] px-[5vw] md:px-[4vw]  ${
+        isScrolled || menuOpen ? 'bg-white' : ''
       }`}>
 
-        <div className={`w-[7.5vw] h-auto flex items-center ${
-          isScrolled ? 'text-black' : 'text-white'
+        <div className={`w-[32vw] max-w-[140px] md:max-w-none md:w-[7.5vw] h-auto flex items-center ${
+          isScrolled || menuOpen ? 'text-black' : 'text-white'
         }`}>
             <svg width="136" height="28" viewBox="0 0 136 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
               <path d="M0.803146 9.23963V0.770996H5.46141V9.29498H8.88819V12.5053H5.46141V21.14C5.46141 21.9703 5.5685 22.4684 5.83622 22.7452C6.10393 23.0219 6.63937 23.1326 7.38897 23.1326C7.92441 23.1326 8.4063 23.0773 8.83464 23.0219V26.7858C8.45984 26.8411 8.03149 26.8965 7.5496 26.8965C7.06771 26.8965 6.58582 26.9518 6.15748 26.9518C5.46141 26.9518 4.76535 26.8965 4.12283 26.7858C3.48031 26.6751 2.89134 26.509 2.40945 26.1769C1.92756 25.8448 1.55275 25.4573 1.23149 24.9038C0.963776 24.3503 0.803146 23.6308 0.803146 22.7452V12.5053" fill="currentColor"></path>
@@ -30,39 +34,63 @@ const Header = ({ isScrolled = false }) => {
         </div>
 
 
-        <div className={`flex items-center justify-around space-x-8 ${
+        <div className={`hidden md:flex items-center justify-around space-x-8 ${
           isScrolled ? 'text-black' : 'text-white'
         }`}>
           
           {navLinks.map((links) => (
-              <Link key={links} className='font-heading font-medium text-[0.7vw] link' href='./'>{links} </Link>
+              <Link key={links} className='font-heading font-medium text-[1vw] link' href='./'>{links} </Link>
           ))}
 
         </div>
-        <div className='pr-5'>
-          <div className={`w-fit rounded-full  flex items-center px-5 py-3 ${isScrolled ? 'bg-neutral-800 text-white' : 'bg-white text-black'}`}>
-            <button className={`border cursor-pointer border-r-1 border-t-0 border-l-0 border-b-0 pr-4 ${isScrolled ? 'border-neutral-300' : 'border-neutral-700'}`} type='icon'>
+        <div className='flex items-center gap-2 md:gap-0 md:pr-5'>
+          <div className={`w-fit rounded-full flex items-center px-4 py-2.5 md:px-5 md:py-3 ${isScrolled || menuOpen ? 'bg-neutral-800 text-white' : 'bg-white text-black'}`}>
+            <button className={`border cursor-pointer border-r-1 border-t-0 border-l-0 border-b-0 pr-3 md:pr-4 ${isScrolled || menuOpen ? 'border-neutral-300' : 'border-neutral-700'}`} type='button' aria-label='Cart'>
 
-                <div className='w-[2vw] h-[1.5vw]'>
+                <div className='w-[22px] h-[18px] md:w-[2vw] md:h-[1.5vw]'>
 
-                  <Image src={`${isScrolled ? '/assets/svg/white-cart.svg' : '/assets/cart.svg'}`} width={500} height={500} alt='cart-icon' className='w-full h-full object-fill'/>
+                  <Image src={`${isScrolled || menuOpen ? '/assets/svg/white-cart.svg' : '/assets/cart.svg'}`} width={500} height={500} alt='cart-icon' className='w-full h-full object-fill'/>
                 </div>
           
               
               </button>
 
-              <button className='pl-4 cursor-pointer'>
+              <button className='pl-3 md:pl-4 cursor-pointer' type='button' aria-label='Account'>
 
-                <div className='w-[2vw] h-[1.5vw]'>
-
-                    <Image src={`${isScrolled ? '/assets/white-user.svg' : '/assets/user.svg'}`} width={500} height={500} alt='cart-icon' className='w-full h-full'/>
+                <div className='w-[22px] h-[18px] md:w-[2vw] md:h-[1.5vw]'>
+                    <Image src={`${isScrolled || menuOpen ? '/assets/white-user.svg' : '/assets/user.svg'}`} width={500} height={500} alt='account-icon' className='w-full h-full'/>
                 </div>
               </button>
               </div>
+
+          <button
+            className={`md:hidden p-2.5 rounded-full cursor-pointer ${isScrolled || menuOpen ? 'bg-neutral-800 text-white' : 'bg-white text-black'}`}
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <nav className='fixed md:hidden z-40 top-[68px] left-0 w-full bg-white text-black px-[6vw] py-6 flex flex-col gap-1 shadow-xl'>
+          {navLinks.map((links) => (
+            <Link
+              key={links}
+              href='./'
+              onClick={() => setMenuOpen(false)}
+              className='font-heading font-medium text-lg py-3 border-b border-neutral-100 last:border-0'
+            >
+              {links}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   )
 }
 
 export default Header;
+

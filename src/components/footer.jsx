@@ -3,7 +3,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Button from './btn';
-gsap.registerEase(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
 
@@ -76,7 +76,7 @@ const Footer = () => {
         <div className='flex space-x-20 mt-[5vw] font-body pl-[5vw]'>
 
             <div className=''>
-                <p className='text-gray-600 text-[1.5vh] '>EXPLORE</p>
+                <p className='text-gray-600 text-[2vh] '>EXPLORE</p>
                 <div className='flex flex-col text-light text-neutral-800 text-xs mt-4 space-y-2'>
                     <p className='hover"underline'>Shop</p>
                     <p className='hover"underline'>Philosophy</p>
@@ -89,7 +89,7 @@ const Footer = () => {
             </div>
 
             <div>
-                <p className='text-gray-500 text-xs text-[1.5vh]'>FOLLOW US</p>
+                <p className='text-gray-500 text-xs text-[2vh]'>FOLLOW US</p>
                 <div className='flex flex-col text-xs text-neutral-800 mt-4 space-y-2'>
                     <p className='hover"underline'>Instagram</p>
                     <p className='hover"underline'>Facebook</p>
@@ -98,7 +98,7 @@ const Footer = () => {
             </div>
 
             <div>
-                <p className='text-gray-500 text-xs text-[1.5vh]'>CONTACT US</p>
+                <p className='text-gray-500 text-xs text-[2vh]'>CONTACT US</p>
                 <div className='flex flex-col text-light text-neutral-800 text-xs mt-4 space-y-2'>
                     <p className='hover"underline'>tk@brandsofbia.com</p>
                     <p className='hover"underline'>1111-2222-3333</p>
@@ -140,7 +140,7 @@ const Footer = () => {
                     <path d="M86.6866 25.1807C86.2047 24.9593 85.6693 24.6272 85.1339 24.2397C84.5984 23.8523 84.063 23.4095 83.5276 22.9667C82.9921 22.4685 82.4567 21.9704 81.9748 21.4169L73.1937 12.0073L78.8693 4.81169C79.726 3.70468 80.7433 2.98512 81.9213 2.59767C83.0992 2.21022 84.3842 2.04416 85.8299 2.04416V0.6604H83.1528C82.4031 0.6604 81.7071 0.771101 81.0646 0.992504C80.422 1.21391 79.8331 1.49066 79.2976 1.87811C78.7622 2.26557 78.2268 2.70837 77.7449 3.20653C77.263 3.70468 76.8346 4.20284 76.4598 4.75634L73.4614 8.63088L70.9984 11.9519C70.9984 11.9519 70.5701 12.6715 69.9276 13.1696L69.874 13.225C69.4992 13.5017 68.8567 13.8338 68.6425 13.6124C68.6425 13.6124 68.6961 13.391 69.3386 13.1143C69.3386 13.1143 68.0535 13.1696 67.411 14.332C67.411 14.332 67.3039 13.4464 69.0173 12.7822L68.8567 12.8375C68.8567 12.8375 67.8394 12.9482 67.3039 13.7785C67.3039 13.7785 67.411 13.0036 68.8031 12.5054C68.8031 12.5054 68 12.5608 67.4646 13.0589C67.4646 13.0589 67.5716 12.5608 68.8031 12.2287C68.8031 12.2287 68.3748 12.118 67.7323 12.4501C67.7323 12.4501 67.8394 12.0626 68.589 11.9519C68.589 11.9519 69.0173 11.8966 69.4457 11.7859C69.6598 11.7305 69.874 11.5091 69.874 11.2324V5.808C69.874 4.86704 69.8205 4.03678 69.7134 3.37258C69.6063 2.70837 69.3921 2.21022 69.1244 1.82276C68.8567 1.43531 68.4819 1.15856 68.0535 0.992504C67.6252 0.715751 67.0362 0.6604 66.3937 0.6604H61.8425V1.82276H62.2173C63.3417 1.82276 64.0913 2.21022 64.4126 2.92977C64.7339 3.64933 64.8945 4.59029 64.8945 5.75265L64.948 27.0073C67.6787 27.0073 69.874 24.8486 69.874 22.0257V17.2102C69.874 16.9888 69.7134 16.7674 69.4992 16.7121C68.8031 16.4907 67.9465 16.4907 67.9465 16.4907C67.1968 16.4353 67.0362 16.0479 67.0362 16.0479C67.6787 16.2693 68.1071 16.1586 68.1071 16.1586C66.8756 15.9372 66.715 15.4943 66.715 15.4943C67.3039 15.9372 68.1071 15.8818 68.1071 15.8818C66.715 15.5497 66.5008 14.8301 66.5008 14.8301C67.0898 15.6051 68.1071 15.6051 68.1071 15.6051L68.2677 15.6604C66.5008 15.2176 66.5008 14.2766 66.5008 14.2766C67.2504 15.3836 68.5354 15.2729 68.5354 15.2729C67.8929 15.1069 67.7858 14.8855 67.7858 14.8855C68.6425 14.7194 69.3921 15.3283 69.874 15.7711L75.9779 22.2471C76.8882 23.2434 77.7449 24.0183 78.548 24.6272C79.3512 25.236 80.1543 25.7342 80.9039 26.0663C81.6535 26.3984 82.4031 26.6752 83.0992 26.7859C83.7953 26.8966 84.4913 26.9519 85.2409 26.9519C85.8299 26.9519 86.3653 26.8966 86.8472 26.8412C87.3291 26.7859 87.7039 26.6752 88.0252 26.5645V25.6235C87.5968 25.5681 87.1685 25.4021 86.6866 25.1807Z" fill="gray" data-v-b55d4582=""></path>
                 </svg>
 
-                <div className='font-body text-[10px]  w-xs mt-3'>
+                <div className='font-body text-[14px] w-xs mt-3'>
                     <p className='text-gray-400'>Clean, Conscious, Clinical Skincare!</p>
                     <p className='text-gray-400'> Honest products that truly work</p>
                     <p className='mt-5 text-neutral-800'>© 2025 TrueKind, All Rights Reserved</p>
@@ -150,9 +150,9 @@ const Footer = () => {
             <div className='absolute bottom-0 right-0 mr-10'>
                 <div className='flex justify-around space-x-8'>
 
-                    <p className='font-body text-[1.5vh] text-gray-400 underline cursor-pointer'>Disclaimer</p>
-                    <p className='font-body text-[1.5vh] text-gray-400 underline cursor-pointer'>Credits</p>
-                    <p className='font-body text-[1.5vh] text-gray-400 cursor-pointer'>Website By: <span className='underline'>Krish</span></p>
+                    <p className='font-body text-[1.8vh] text-gray-400 underline cursor-pointer'>Disclaimer</p>
+                    <p className='font-body text-[1.8vh] text-gray-400 underline cursor-pointer'>Credits</p>
+                    <p className='font-body text-[1.8vh] text-gray-400 cursor-pointer'>Website By: <span className='underline'>Krish</span></p>
                 </div>
             </div>
         </div>

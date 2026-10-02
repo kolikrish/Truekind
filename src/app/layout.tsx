@@ -54,15 +54,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <LenisSmoothScroll />
-      <html lang="en">
-        <body
-          className={`${EditorialNewRegular.variable} ${PPMoriRegular.variable} ${EditorialNewItalic.variable}`}
-        >
-          {children}
-        </body>
-      </html>
-    x`</>
+    <html lang="en">
+      <body
+        className={`${EditorialNewRegular.variable} ${PPMoriRegular.variable} ${EditorialNewItalic.variable}`}
+      >
+        <LenisSmoothScroll />
+        {children}
+      </body>
+    </html>
   );
 }
